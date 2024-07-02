@@ -36,6 +36,22 @@
     margin-top: 50px;
 }
 
+.goalsSection {
+    margin: 10px 0;
+}
+
+.slackEmail {
+    width: 100%;
+    text-align: right;
+    color: rgb(2, 2, 194);
+}
+
+.stackLink {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 800px) {
     .slack {
         background-color: rgba(93, 0, 255, 0.126);

@@ -1,15 +1,20 @@
-function updateCurrentDay() {
-    const today = new Date();
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    document.querySelector('[data-testid="currentDay"]').textContent = days[today.getDay()];
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const getCurrentDay = () => {
+        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return days[new Date().getDay()];
+    };
 
-function updateCurrentTimeInUTC() {
-    const now = new Date().toUTCString();
-    document.querySelector('[data-testid="currentTimeUTC"]').textContent = now;
-}
+    const getCurrentTimeUTC = () => {
+        let date = new Date();
+        let formatter = new Intl.DateTimeFormat('en-US', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: true
+        });
+        return formatter.format(date);
+    };
 
-setInterval(() => {
-    updateCurrentDay();
-    updateCurrentTimeInUTC();
-}, 1000);
+    document.querySelector('.day-data-info').textContent = getCurrentDay();
+
+    document.querySelector('.time-data-info').textContent = getCurrentTimeUTC();
+});
